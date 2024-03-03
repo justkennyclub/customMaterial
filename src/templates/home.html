@@ -6,7 +6,7 @@
     <!-- Navigation -->
     {% if nav %}
     {% if not page.meta or not page.meta.show or "navigation" not in page.meta.show %}
-    {% set hidden = "hidden" if "navigation" not in page.meta.show %}
+    {% set hidden = "hidden" %}
     {% endif %}
     <div
             class="md-sidebar md-sidebar--primary"
@@ -23,8 +23,9 @@
     {% endif %}
     <!-- Table of contents -->
     {% if "toc.integrate" not in features %}
+    {% set hidden = "" %}
     {% if not page.meta or not page.meta.show or "toc" not in page.meta.show %}
-    {% set hidden = "hidden" if "toc" not in page.meta.show %}
+    {% set hidden = "hidden" %}
     {% endif %}
     <div
             class="md-sidebar md-sidebar--secondary"
