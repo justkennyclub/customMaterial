@@ -5,11 +5,14 @@
 {% block site_nav %}
     <!-- Navigation -->
     {% if nav %}
+    {% if not page.meta or not page.meta.show %}
+    {% set hidden = "hidden" if "navigation" not in page.meta.show %}
+    {% endif %}
     <div
             class="md-sidebar md-sidebar--primary"
             data-md-component="sidebar"
             data-md-type="navigation"
-            hidden="hidden"
+            {{ hidden }}
     >
         <div class="md-sidebar__scrollwrap">
             <div class="md-sidebar__inner">
@@ -20,8 +23,8 @@
     {% endif %}
     <!-- Table of contents -->
     {% if "toc.integrate" not in features %}
-    {% if page.meta and page.meta.hide %}
-    {% set hidden = "hidden" if "toc" in page.meta.hide %}
+    {% if not page.meta or not page.meta.show %}
+    {% set hidden = "hidden" if "toc" not in page.meta.show %}
     {% endif %}
     <div
             class="md-sidebar md-sidebar--secondary"
