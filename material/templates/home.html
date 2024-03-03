@@ -23,7 +23,7 @@
     {% endif %}
     <!-- Table of contents -->
     {% if "toc.integrate" not in features %}
-    {% if not page.meta or not page.meta.show "toc" not in page.meta.show %}
+    {% if not page.meta or not page.meta.show or "toc" not in page.meta.show %}
     {% set hidden = "hidden" %}
     {% endif %}
     <div
